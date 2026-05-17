@@ -1,7 +1,7 @@
 import type { ProductInfo } from "../types";
 import { tsr310Data } from "./tsr-310";
 import { tsw1070Data } from "./tsw-1070";
-// Later toevoegen: import { pmc500Data } from "./pmc-500";
+// Add later: import { pmc500Data } from "./pmc-500";
 
 export const knowledgebaseData: ProductInfo[] = [
   tsr310Data,
@@ -9,7 +9,7 @@ export const knowledgebaseData: ProductInfo[] = [
   // pmc500Data,
 ];
 
-// Lookup map voor O(1) toegang op ID — handig voor de detail view
+// O(1) lookup map by product ID for quick detail rendering
 export const knowledgebaseMap: Record<string, ProductInfo> = Object.fromEntries(
   knowledgebaseData.map((product) => [product.id, product]),
 );

@@ -1,10 +1,10 @@
 export type ProductCategory =
-  | "Sensoren"
-  | "Netwerk"
+  | "Sensors"
+  | "Network"
   | "Controllers"
-  | "Aandrijvingen"
-  | "Visualisatie"
-  | "Afstandsbediening";
+  | "Drives"
+  | "Visualization"
+  | "Remote Control";
 
 export type DocLinkType = "manual" | "video" | "firmware" | "datasheet";
 
@@ -22,9 +22,25 @@ export interface DocLink {
   type: DocLinkType;
 }
 
-export interface TriageQuestions {
-  problemSpecific?: string[];
-  generalQuestions?: string[];
+export type GeneralProblemKind =
+  | "battery"
+  | "network"
+  | "display"
+  | "software"
+  | "system";
+
+export interface GeneralProblemCheck {
+  id: string;
+  title: string;
+  prompt: string;
+  refCode: string;
+}
+
+export interface GeneralProblemCategory {
+  id: string;
+  title: string;
+  kind: GeneralProblemKind;
+  checks: GeneralProblemCheck[];
 }
 
 export type DeviceManagementStatus = "supported" | "not_supported";
@@ -51,7 +67,7 @@ export interface ProductInfo {
   tagColor: string;
   // Content
   problems: Problem[];
-  triageQuestions: TriageQuestions;
+  generalProblems: GeneralProblemCategory[];
   deviceManagement?: DeviceManagement;
   docLinks: DocLink[];
 }
