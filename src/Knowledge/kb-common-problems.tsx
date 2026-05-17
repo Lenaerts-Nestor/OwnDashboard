@@ -1,4 +1,4 @@
-import type { Problem } from "./types";
+import type { Problem } from "../types";
 import { WarningIcon } from "./kb-icons";
 import { EmptyState, RefBadge, SectionCard } from "./kb-shared";
 

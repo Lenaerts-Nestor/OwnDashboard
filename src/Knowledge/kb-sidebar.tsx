@@ -1,4 +1,4 @@
-import type { ProductInfo } from "./types";
+import type { ProductInfo } from "../types";
 import { ChevronRightIcon, SearchIcon } from "./kb-icons";
 
 function SidebarItem({

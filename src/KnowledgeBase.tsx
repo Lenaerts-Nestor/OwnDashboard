@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { knowledgebaseData, knowledgebaseMap } from "./data/index";
-import { KnowledgeBaseContent } from "./kb-content";
-import { Sidebar } from "./kb-sidebar";
+import { KnowledgeBaseContent } from "./Knowledge/kb-content";
+import { Sidebar } from "./Knowledge/kb-sidebar";
 
 export default function KnowledgeBase() {
   const [activeId, setActiveId] = useState<string>(knowledgebaseData[0].id);

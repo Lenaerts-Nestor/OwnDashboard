@@ -1,4 +1,4 @@
-import type { DeviceManagement } from "./types";
+import type { DeviceManagement } from "../types";
 import { ChevronDownIcon, DeviceManagementIcon } from "./kb-icons";
 
 function DeviceManagementAccordion({

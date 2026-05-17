@@ -1,4 +1,4 @@
-import type { GeneralProblemCategory, GeneralProblemKind } from "./types";
+import type { GeneralProblemCategory, GeneralProblemKind } from "../types";
 import {
   BatteryIcon,
   ChevronDownIcon,

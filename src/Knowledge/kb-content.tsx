@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import type { ProductInfo } from "./types";
+import type { ProductInfo } from "../types";
 import { CommonProblemsSection } from "./kb-common-problems";
 import { DeviceManagementCard } from "./kb-device-management";
 import { DocumentationLinksCard } from "./kb-doc-links";

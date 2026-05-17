@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { DocLink, DocLinkType } from "./types";
+import type { DocLink, DocLinkType } from "../types";
 import { ChevronDownIcon, ExternalLinkIcon } from "./kb-icons";
 import { EmptyState } from "./kb-shared";
 
