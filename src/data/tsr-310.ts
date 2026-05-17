@@ -4,7 +4,7 @@ export const tsr310Data: ProductInfo = {
   id: "TSR-310",
   title: "TSR-310",
   category: "Remote Control",
-  shortDescription: "Crestron wireless touchscreen remote control",
+  shortDescription: "Wireless touchscreen remote (case dashboard entry)",
   tagLabel: "TS",
   tagColor: "bg-orange-500",
 
@@ -13,28 +13,28 @@ export const tsr310Data: ProductInfo = {
       id: "tsr310-p1",
       title: "Slow Wi-Fi reconnection after sleep",
       description:
-        "The unit needs 20-30 seconds to reconnect to Wi-Fi after waking from sleep.",
+        "After wake, the unit takes noticeably longer than expected to rejoin Wi-Fi and restore control.",
       refCode: "#TSR-001",
     },
     {
       id: "tsr310-p2",
       title: "Touchscreen unresponsive",
       description:
-        "Touch input is intermittent or fully unresponsive after boot or during use.",
+        "Touch input is inconsistent (intermittent / zone-specific / fully unresponsive) and requires classification before escalation.",
       refCode: "#TSR-002",
     },
     {
       id: "tsr310-p3",
       title: '"Unable to load the user interface" after boot',
       description:
-        'The screen shows "unable to load the user interface" immediately after startup.',
+        "UI fails during startup and displays an error before the interface becomes usable.",
       refCode: "#TSR-003",
     },
     {
       id: "tsr310-p4",
       title: "Volume buttons only control active endpoint",
       description:
-        "In Crestron Home, the volume rocker is tied to the active audio endpoint only.",
+        "Volume control follows the active endpoint in Crestron Home; confirm whether this is expected by design for the deployment.",
       refCode: "#TSR-004",
     },
   ],
@@ -82,30 +82,30 @@ export const tsr310Data: ProductInfo = {
       checks: [
         {
           id: "tsr310-n1",
-          title: "Capture reconnect latency after wake",
+          title: "Measure post-wake reconnection time",
           prompt:
-            "Time how long the remote needs to restore Wi-Fi after waking and compare against expected reconnection time.",
+            "Record the time from wake to a stable Wi-Fi connection and compare against the expected baseline for the site.",
           refCode: "#TSR-001",
         },
         {
           id: "tsr310-n2",
-          title: "Validate signal strength in usage location",
+          title: "Validate RF conditions and roaming behavior",
           prompt:
-            "Record RSSI at the normal user location and confirm no access point handoff instability is present.",
+            "Capture RSSI at the typical user location and confirm there is no access point handoff/roaming instability.",
           refCode: "#TSR-007",
         },
         {
           id: "tsr310-n3",
-          title: "Confirm DHCP lease behavior",
+          title: "Confirm DHCP and IP stability",
           prompt:
-            "Check whether lease renewal or IP conflicts occur after sleep transitions.",
+            "Check for lease renewals, IP conflicts, or VLAN changes triggered by sleep/wake transitions.",
           refCode: "#TSR-008",
         },
         {
           id: "tsr310-n4",
-          title: "Verify endpoint reachability",
+          title: "Verify control system reachability",
           prompt:
-            "Validate ping and control endpoint reachability from the same VLAN used by the remote.",
+            "Validate that required endpoints are reachable from the remote VLAN (ICMP + control ports as applicable).",
           refCode: "#TSR-003",
         },
       ],
@@ -117,30 +117,30 @@ export const tsr310Data: ProductInfo = {
       checks: [
         {
           id: "tsr310-d1",
-          title: "Inspect hardware condition before software triage",
+          title: "Document physical condition first",
           prompt:
-            "Check for cracks, moisture, or pressure marks and document physical findings before proceeding.",
+            "Inspect for cracks, moisture exposure, or pressure damage and document findings before software troubleshooting.",
           refCode: "#TSR-002",
         },
         {
           id: "tsr310-d2",
-          title: "Classify touch failure pattern",
+          title: "Classify the touch failure pattern",
           prompt:
-            "Determine whether the issue is intermittent, area-specific, or fully unresponsive from boot.",
+            "Identify whether the issue is intermittent, zone-specific, or fully unresponsive (including from boot).",
           refCode: "#TSR-002",
         },
         {
           id: "tsr310-d3",
-          title: "Compare behavior across multiple units",
+          title: "Check reproducibility across units",
           prompt:
-            "Check if the same touch issue appears on additional units in the same deployment.",
+            "Verify whether the same behavior is present on other remotes in the deployment (helps separate device vs environment).",
           refCode: "#TSR-002",
         },
         {
           id: "tsr310-d4",
-          title: "Verify post-boot UI rendering",
+          title: "Confirm startup UI failure state",
           prompt:
-            'Record whether the UI fails immediately at startup with "Unable to load the user interface".',
+            "Capture whether the UI fails during boot with an error (e.g., unable to load the user interface).",
           refCode: "#TSR-003",
         },
       ],
@@ -152,30 +152,30 @@ export const tsr310Data: ProductInfo = {
       checks: [
         {
           id: "tsr310-s1",
-          title: "Validate last firmware action",
+          title: "Confirm the last known change",
           prompt:
-            "Confirm if the issue started after a firmware update, rollback, or reset procedure.",
+            "Confirm whether the issue started after a firmware update, rollback, provisioning change, or reset—and capture timestamps.",
           refCode: "#TSR-003",
         },
         {
           id: "tsr310-s2",
-          title: "Verify recovery outcome",
+          title: "Capture recovery outcome",
           prompt:
-            "Document the exact result of the latest factory recovery attempt and boot sequence.",
+            "Document the exact result of the latest factory recovery attempt, including any error screens during boot.",
           refCode: "#TSR-003",
         },
         {
           id: "tsr310-s3",
-          title: "Confirm control system type and binding behavior",
+          title: "Validate the expected behavior for the environment",
           prompt:
-            "Identify whether the deployment uses Crestron Home or custom SIMPL logic before judging volume-routing behavior.",
+            "Confirm whether the deployment uses Crestron Home or a custom program before treating endpoint/volume behavior as a defect.",
           refCode: "#TSR-004",
         },
         {
           id: "tsr310-s4",
-          title: "Check toolbox visibility and diagnostics",
+          title: "Collect diagnostics before escalation",
           prompt:
-            "Verify the unit is discoverable in Toolbox and capture logs before escalation.",
+            "Confirm Toolbox visibility (if applicable) and capture logs/screenshots so escalation includes evidence.",
           refCode: "#TSR-003",
         },
       ],
@@ -186,9 +186,9 @@ export const tsr310Data: ProductInfo = {
     factoryReset: {
       status: "supported",
       instructions: [
-        "Open the service interface and navigate to Device Settings > Recovery.",
-        "Select Factory Reset, confirm the warning, and wait for the reboot to finish.",
-        "Complete basic setup again and verify network connectivity before handing back.",
+        "Hold the Power and Menu button (Hamburger symbol) until the remote begins to reboot. The reboot cycle is completed once the Crestron Swirl logo appears on the remote's screen",
+        "Complete the initial setup prompts and reconnect the unit to the correct Wi‑Fi network.",
+        "Re-validate control and UI load behavior after provisioning (capture photos/logs if the issue persists).",
       ],
     },
     firmwareUpdate: {
@@ -201,32 +201,37 @@ export const tsr310Data: ProductInfo = {
     {
       id: "tsr310-d1",
       title: "TSR-310 Product Page & Resources",
-      subtitle: "Manual",
+      subtitle: "Official resources (Crestron)",
       type: "manual",
+      url: "https://www.crestron.com/Search#q=TSR-310",
     },
     {
       id: "tsr310-d2",
       title: "TSR-310 Recovery Procedure",
-      subtitle: "Manual",
+      subtitle: "Recovery / re-provisioning guide",
       type: "manual",
+      url: "https://www.crestron.com/Search#q=TSR-310%20recovery",
     },
     {
       id: "tsr310-d3",
-      title: "TSR-310 Supplemental Guide (Standby Settings)",
-      subtitle: "Manual",
+      title: "TSR-310 Standby Settings Guide",
+      subtitle: "Power policy reference",
       type: "manual",
+      url: "https://www.crestron.com/Search#q=TSR-310%20standby",
     },
     {
       id: "tsr310-d4",
       title: "Latest Firmware Download",
-      subtitle: "Firmware",
+      subtitle: "Firmware releases",
       type: "firmware",
+      url: "https://www.crestron.com/Search#q=TSR-310%20firmware",
     },
     {
       id: "tsr310-d5",
-      title: "Datasheet TSR-310",
-      subtitle: "Datasheet",
+      title: "TSR-310 Datasheet",
+      subtitle: "Specifications (PDF)",
       type: "datasheet",
+      url: "https://www.crestron.com/Search#q=TSR-310%20datasheet",
     },
   ],
 };

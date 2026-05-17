@@ -3,28 +3,31 @@ import type { ProductInfo } from "../types";
 export const tsw1070Data: ProductInfo = {
   id: "TSW-1070",
   title: "TSW-1070",
-  category: "Network",
-  shortDescription: "Managed industrial Ethernet switch with 10 ports",
+  category: "Visualization",
+  shortDescription: "Touch panel (case dashboard entry)",
   tagLabel: "TW",
   tagColor: "bg-sky-600",
 
   problems: [
     {
       id: "tsw1070-p1",
-      title: "Port flapping detected",
-      description: "A switch port repeatedly toggles between link-up and link-down.",
+      title: "Intermittent connectivity reported",
+      description:
+        "Users report unstable behavior; confirm whether symptoms track to network conditions, firmware, or deployment configuration.",
       refCode: "#150301",
     },
     {
       id: "tsw1070-p2",
-      title: "VLAN configuration lost after reboot",
-      description: "VLAN configuration is not retained after power loss or reboot.",
+      title: "Configuration not retained after reboot",
+      description:
+        "Settings appear to reset after power loss; validate save workflow and persistent storage behavior.",
       refCode: "#150422",
     },
     {
       id: "tsw1070-p3",
       title: "Web interface unavailable",
-      description: "Management UI times out on HTTPS port 443.",
+      description:
+        "UI access fails (timeouts / refused connection); confirm reachability and access-control paths before escalation.",
       refCode: "#150589",
     },
   ],
@@ -37,30 +40,30 @@ export const tsw1070Data: ProductInfo = {
       checks: [
         {
           id: "tsw1070-n1",
-          title: "Validate link stability on affected ports",
+          title: "Validate the network path end-to-end",
           prompt:
-            "Check interface counters for link flaps, CRC errors, and speed/duplex mismatches.",
+            "Confirm the device is on the expected VLAN/subnet and that routing to the management network is correct.",
           refCode: "#150301",
         },
         {
           id: "tsw1070-n2",
-          title: "Confirm management VLAN path",
+          title: "Confirm management access path",
           prompt:
-            "Verify management VLAN tagging and routing to ensure HTTPS traffic reaches the switch.",
+            "Verify that HTTPS traffic can reach the device from the admin network (VLAN tagging, routing, firewall).",
           refCode: "#150589",
         },
         {
           id: "tsw1070-n3",
-          title: "Verify STP and loop-protection state",
+          title: "Eliminate loop/port-security triggers",
           prompt:
-            "Inspect STP events and loop-detection logs that may cause temporary port shutdowns.",
+            "Review loop protection, STP events, and security policies that could cause temporary shutdowns or instability.",
           refCode: "#150301",
         },
         {
           id: "tsw1070-n4",
-          title: "Confirm DNS and gateway resolution",
+          title: "Verify name-resolution assumptions",
           prompt:
-            "Validate DNS and default gateway behavior for management-plane connectivity checks.",
+            "If hostnames are used, confirm DNS behavior and gateway reachability from the management plane.",
           refCode: "#150590",
         },
       ],
@@ -72,30 +75,30 @@ export const tsw1070Data: ProductInfo = {
       checks: [
         {
           id: "tsw1070-s1",
-          title: "Record running firmware version",
+          title: "Record the current version and baseline",
           prompt:
-            "Use CLI command 'show version' and compare with approved baseline version.",
+            "Capture the running firmware/software version and compare it to the approved baseline for the customer environment.",
           refCode: "#150301",
         },
         {
           id: "tsw1070-s2",
-          title: "Verify persistent configuration mode",
+          title: "Validate configuration persistence settings",
           prompt:
-            "Ensure System > Storage > Persistent Config is enabled for startup retention.",
+            "Confirm that the configuration is saved and persistent storage is enabled (where applicable) before reboot testing.",
           refCode: "#150422",
         },
         {
           id: "tsw1070-s3",
-          title: "Check startup-config write events",
+          title: "Confirm save completes without errors",
           prompt:
-            "Confirm that save operations complete without write errors before power cycling.",
+            "Verify that save/write operations complete successfully and no storage errors are reported.",
           refCode: "#150422",
         },
         {
           id: "tsw1070-s4",
-          title: "Review reboot reason and last crash logs",
+          title: "Review stability signals",
           prompt:
-            "Inspect reboot cause history and firmware logs for software-level instability.",
+            "Inspect reboot reason history and logs to determine whether instability is software-driven or environment-driven.",
           refCode: "#150591",
         },
       ],
@@ -116,21 +119,21 @@ export const tsw1070Data: ProductInfo = {
           id: "tsw1070-h2",
           title: "Review thermal operating conditions",
           prompt:
-            "Capture chassis temperature and verify airflow and ambient temperature are compliant.",
+            "Capture device temperature and confirm airflow/ambient conditions are within spec.",
           refCode: "#150593",
         },
         {
           id: "tsw1070-h3",
-          title: "Inspect port hardware and cabling quality",
+          title: "Inspect physical layer health",
           prompt:
-            "Inspect connectors and test cable integrity to eliminate physical-layer instability.",
+            "Inspect connectors and cabling, then retest to rule out physical-layer instability.",
           refCode: "#150301",
         },
         {
           id: "tsw1070-h4",
-          title: "Confirm management access controls",
+          title: "Confirm access control expectations",
           prompt:
-            "Review ACL or firewall policies that may block UI access while ping still works.",
+            "Review ACL/firewall rules and role-based access to ensure UI traffic is permitted (not just ICMP).",
           refCode: "#150589",
         },
       ],
@@ -151,27 +154,31 @@ export const tsw1070Data: ProductInfo = {
   docLinks: [
     {
       id: "tsw1070-d1",
-      title: "TSW-1070 Administration Guide",
-      subtitle: "Manual",
+      title: "TSW-1070 Product Documentation",
+      subtitle: "Official documentation (Crestron)",
       type: "manual",
+      url: "https://www.crestron.com/Search#q=TSW-1070",
     },
     {
       id: "tsw1070-d2",
-      title: "VLAN Configuration Masterclass",
-      subtitle: "Video",
+      title: "Deployment & Configuration Overview",
+      subtitle: "Implementation overview",
       type: "video",
+      url: "https://www.crestron.com/Search#q=TSW-1070%20configuration",
     },
     {
       id: "tsw1070-d3",
-      title: "Firmware v3.5.2 Download",
-      subtitle: "Firmware",
+      title: "Firmware Downloads",
+      subtitle: "Firmware releases",
       type: "firmware",
+      url: "https://www.crestron.com/Search#q=TSW-1070%20firmware",
     },
     {
       id: "tsw1070-d4",
-      title: "Datasheet TSW-1070",
-      subtitle: "Datasheet",
+      title: "TSW-1070 Datasheet",
+      subtitle: "Specifications (PDF)",
       type: "datasheet",
+      url: "https://www.crestron.com/Search#q=TSW-1070%20datasheet",
     },
   ],
 };

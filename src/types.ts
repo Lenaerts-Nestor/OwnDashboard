@@ -20,6 +20,7 @@ export interface DocLink {
   title: string;
   subtitle: string;
   type: DocLinkType;
+  url: string;
 }
 
 export type GeneralProblemKind =
