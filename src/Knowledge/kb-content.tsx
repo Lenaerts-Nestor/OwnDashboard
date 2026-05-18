@@ -4,6 +4,7 @@ import { AllProblemsSection } from "./kb-all-problems";
 import { CommonProblemsSection } from "./kb-common-problems";
 import { DeviceManagementCard } from "./kb-device-management";
 import { DocumentationLinksGrid } from "./kb-doc-links";
+import { MailPageContent } from "./kb-mail-page";
 
 export function KnowledgeBaseContent({ product }: { product: ProductInfo }) {
   const [openDeviceManagementItem, setOpenDeviceManagementItem] = useState<
@@ -21,6 +22,10 @@ export function KnowledgeBaseContent({ product }: { product: ProductInfo }) {
     setOpenDeviceManagementItem(null);
     setActiveTab("common");
   }, [product.id]);
+
+  if (product.pageType === "mail") {
+    return <MailPageContent product={product} />;
+  }
 
   const toggleDeviceManagementItem = (
     item: "factoryReset" | "firmwareUpdate",
@@ -131,7 +136,8 @@ export function KnowledgeBaseContent({ product }: { product: ProductInfo }) {
                   My Notes
                 </h2>
                 <p className="text-sm text-zinc-500">
-                  No notes yet. Add customer context, call logs, and follow-ups here.
+                  No notes yet. Add customer context, call logs, and follow-ups
+                  here.
                 </p>
               </div>
             </div>

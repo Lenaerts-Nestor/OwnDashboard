@@ -1,4 +1,9 @@
 import type { ProductInfo } from "../types";
+import {
+  followUpCasesData,
+  mailsRulesData,
+  sendingMailSectionData,
+} from "./basic-knowledge";
 import { tsr310Data } from "./tsr-310";
 import { tsw1070Data } from "./tsw-1070";
 // Add later: import { pmc500Data } from "./pmc-500";
@@ -6,6 +11,9 @@ import { tsw1070Data } from "./tsw-1070";
 export const knowledgebaseData: ProductInfo[] = [
   tsr310Data,
   tsw1070Data,
+  sendingMailSectionData,
+  followUpCasesData,
+  mailsRulesData,
   // pmc500Data,
 ];
 

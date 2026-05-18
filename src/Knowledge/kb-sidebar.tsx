@@ -60,6 +60,7 @@ export function Sidebar({
     Drives: "Drives",
     Visualization: "Visualisatie",
     "Remote Control": "Remote Control",
+    "Basic Knowledge": "Basic Knowledge",
   };
 
   const grouped = filtered.reduce<
@@ -96,9 +97,7 @@ export function Sidebar({
 
       <nav className="flex-1 overflow-y-auto py-2">
         {filtered.length === 0 ? (
-          <p className="text-xs text-zinc-400 px-4 py-3">
-            No results found.
-          </p>
+          <p className="text-xs text-zinc-400 px-4 py-3">No results found.</p>
         ) : (
           grouped.map((group) => (
             <div key={group.category} className="mb-3 last:mb-0">

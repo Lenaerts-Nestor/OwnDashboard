@@ -4,7 +4,8 @@ export type ProductCategory =
   | "Controllers"
   | "Drives"
   | "Visualization"
-  | "Remote Control";
+  | "Remote Control"
+  | "Basic Knowledge";
 
 export type DocLinkType = "manual" | "video" | "firmware" | "datasheet";
 
@@ -87,6 +88,23 @@ export interface DeviceManagement {
   firmwareUpdate: DeviceManagementOption;
 }
 
+export interface MailBlock {
+  id: string;
+  title: string;
+  text: string;
+}
+
+export interface MailSection {
+  id: string;
+  title: string;
+  subtitle?: string;
+  blocks: MailBlock[];
+}
+
+export interface MailPageContent {
+  sections: MailSection[];
+}
+
 // The single "shape" every product file must conform to
 export interface ProductInfo {
   // Sidebar
@@ -94,6 +112,7 @@ export interface ProductInfo {
   title: string;
   category: ProductCategory;
   shortDescription: string;
+  pageType?: "product" | "mail";
   // Header
   tagLabel: string;
   tagColor: string;
@@ -103,4 +122,5 @@ export interface ProductInfo {
   generalProblems: GeneralProblemCategory[];
   deviceManagement?: DeviceManagement;
   docLinks: DocLink[];
+  mailContent?: MailPageContent;
 }
