@@ -1,5 +1,16 @@
 import type { ProductInfo } from "../../types";
-import { askingRmaSection, generalGuidelinesSection } from "./content";
+import {
+  afterChatFollowUpSection,
+  askingRmaSection,
+  clientStillWorkingSection,
+  closeSuccessfulCaseSection,
+  directRmaRequestSection,
+  generalGuidelinesSection,
+  masterInstallerLoginSection,
+  missingSerialNumberSection,
+  technicianOnLeaveSection,
+  troubleshootingBeforeRmaSection,
+} from "./content";
 
 export const mailsRulesData = {
   id: "mails-rules",
@@ -14,6 +25,17 @@ export const mailsRulesData = {
   generalProblems: [],
   docLinks: [],
   mailContent: {
-    sections: [generalGuidelinesSection, askingRmaSection],
+    sections: [
+      generalGuidelinesSection,
+      askingRmaSection,
+      technicianOnLeaveSection,
+      troubleshootingBeforeRmaSection,
+      directRmaRequestSection,
+      closeSuccessfulCaseSection,
+      missingSerialNumberSection,
+      clientStillWorkingSection,
+      masterInstallerLoginSection,
+      afterChatFollowUpSection,
+    ],
   },
 } satisfies ProductInfo;
