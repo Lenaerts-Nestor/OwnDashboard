@@ -213,35 +213,6 @@ Comparta horarios convenientes si se necesita una sesión en vivo para revisione
   ],
 } satisfies MailSection;
 
-export const masterInstallerLoginSection = {
-  id: "master-installer-login",
-  title: "Master Installer Login",
-  subtitle: "Request access for advanced diagnostics",
-  blocks: [
-    {
-      id: "master-installer-login-en",
-      title: "English",
-      text: `For advanced diagnostics, we may need master installer access.
-
-Could you confirm whether master installer credentials are available, or if your installer can temporarily assist during a remote session?`,
-    },
-    {
-      id: "master-installer-login-nl",
-      title: "Nederlands",
-      text: `Voor geavanceerde diagnostiek hebben we mogelijk master installer-toegang nodig.
-
-Kunt u bevestigen of master installer-gegevens beschikbaar zijn, of dat uw installateur tijdelijk kan ondersteunen tijdens een remote sessie?`,
-    },
-    {
-      id: "master-installer-login-es",
-      title: "Español",
-      text: `Para diagnósticos avanzados, es posible que necesitemos acceso de master installer.
-
-¿Podría confirmar si las credenciales de master installer están disponibles, o si su instalador puede asistir temporalmente durante una sesión remota?`,
-    },
-  ],
-} satisfies MailSection;
-
 export const afterChatFollowUpSection = {
   id: "after-chat-follow-up",
   title: "After Chat Follow Up",

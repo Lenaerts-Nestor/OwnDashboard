@@ -1,9 +1,10 @@
 import type { ProductInfo } from "../../types";
 import { startEmailSection } from "./sections/start-email";
+import { mailStructureExtraSection } from "./sections/mail-structure";
 
 export const sendingMailSectionData = {
   id: "sending-mail-section",
-  title: "Sending Mail Section",
+  title: "Mail Structure and Extra's",
   category: "Basic Knowledge",
   shortDescription: "Email templates and rules for customer communication",
   pageType: "mail",
@@ -14,6 +15,6 @@ export const sendingMailSectionData = {
   generalProblems: [],
   docLinks: [],
   mailContent: {
-    sections: [startEmailSection],
+    sections: [startEmailSection, mailStructureExtraSection],
   },
 } satisfies ProductInfo;

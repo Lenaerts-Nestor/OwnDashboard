@@ -11,7 +11,7 @@ import {
 
 export const mailsRulesData = {
   id: "mails-rules",
-  title: "Mails Rules",
+  title: "Daily Mails Response",
   category: "Basic Knowledge",
   shortDescription: "Rules and phrasing for customer emails",
   pageType: "mail",

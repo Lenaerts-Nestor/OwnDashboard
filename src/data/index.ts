@@ -12,8 +12,8 @@ export const knowledgebaseData: ProductInfo[] = [
   tsr310Data,
   tsw1070Data,
   sendingMailSectionData,
-  followUpCasesData,
   mailsRulesData,
+  followUpCasesData,
   // pmc500Data,
 ];
 
