@@ -98,11 +98,11 @@ export interface MailSection {
   id: string;
   title: string;
   subtitle?: string;
-  blocks: MailBlock[];
+  blocks: readonly MailBlock[];
 }
 
 export interface MailPageContent {
-  sections: MailSection[];
+  sections: readonly MailSection[];
 }
 
 // The single "shape" every product file must conform to

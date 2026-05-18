@@ -1,6 +1,6 @@
-import type { ProductInfo } from "../types";
+import type { MailSection } from "../../types";
 
-const startEmailSection = {
+export const startEmailSection = {
   id: "start-email",
   title: "Start Email",
   subtitle: "Use these templates to open a new case",
@@ -48,9 +48,9 @@ Para futuras referencias, ¿podría facilitarnos un nombre o referencia de proye
 No dude en contactarnos si tiene más preguntas. Muchas gracias.`,
     },
   ],
-} as const;
+} satisfies MailSection;
 
-const firstFollowUpSection = {
+export const firstFollowUpSection = {
   id: "first-follow-up",
   title: "First Follow Up",
   subtitle: "Use this after the first reminder",
@@ -73,9 +73,9 @@ Solo quería hacer un seguimiento y confirmar si todo sigue funcionando correcta
 Si tiene alguna pregunta o necesita más asistencia, no dude en contactarnos. Con gusto le ayudaré.`,
     },
   ],
-} as const;
+} satisfies MailSection;
 
-const secondFollowUpSection = {
+export const secondFollowUpSection = {
   id: "second-follow-up",
   title: "Second Follow Up",
   subtitle: "Use this when the first follow-up is still unanswered",
@@ -98,9 +98,9 @@ We'd appreciate an update on the status of this case.`,
 Agradeceríamos una actualización sobre el estado de este caso.`,
     },
   ],
-} as const;
+} satisfies MailSection;
 
-const thirdFollowUpSection = {
+export const thirdFollowUpSection = {
   id: "third-follow-up",
   title: "Third Follow Up",
   subtitle: "Final reminder before closing the case",
@@ -124,9 +124,9 @@ Si no recibimos respuesta en los próximos días, procederemos a cerrar este cas
 No dude en reabrirlo en cualquier momento si necesita más asistencia.`,
     },
   ],
-} as const;
+} satisfies MailSection;
 
-const generalGuidelinesSection = {
+export const generalGuidelinesSection = {
   id: "general-guidelines",
   title: "General Guidelines",
   subtitle: "Keep the question focused and easy to answer",
@@ -138,9 +138,9 @@ const generalGuidelinesSection = {
 - Around 3-5 question max, to avoid the client to only focus on our question and deviate from the issue.`,
     },
   ],
-} as const;
+} satisfies MailSection;
 
-const askingRmaSection = {
+export const askingRmaSection = {
   id: "asking-rma",
   title: "ASKING RMA",
   subtitle: "Use this when the case needs return authorization details",
@@ -164,59 +164,4 @@ Delivery/return address confirmation
   • Country:`,
     },
   ],
-} as const;
-
-export const sendingMailSectionData: ProductInfo = {
-  id: "sending-mail-section",
-  title: "Sending Mail Section",
-  category: "Basic Knowledge",
-  shortDescription: "Email templates and rules for customer communication",
-  pageType: "mail",
-  tagLabel: "BK",
-  tagColor: "bg-sky-500",
-  problems: [],
-  problemCategories: [],
-  generalProblems: [],
-  docLinks: [],
-  mailContent: {
-    sections: [startEmailSection],
-  },
-};
-
-export const followUpCasesData: ProductInfo = {
-  id: "follow-up-cases",
-  title: "Follow Up Cases",
-  category: "Basic Knowledge",
-  shortDescription: "Follow-up templates for open support cases",
-  pageType: "mail",
-  tagLabel: "BK",
-  tagColor: "bg-sky-500",
-  problems: [],
-  problemCategories: [],
-  generalProblems: [],
-  docLinks: [],
-  mailContent: {
-    sections: [
-      firstFollowUpSection,
-      secondFollowUpSection,
-      thirdFollowUpSection,
-    ],
-  },
-};
-
-export const mailsRulesData: ProductInfo = {
-  id: "mails-rules",
-  title: "Mails Rules",
-  category: "Basic Knowledge",
-  shortDescription: "Rules and phrasing for customer emails",
-  pageType: "mail",
-  tagLabel: "BK",
-  tagColor: "bg-sky-500",
-  problems: [],
-  problemCategories: [],
-  generalProblems: [],
-  docLinks: [],
-  mailContent: {
-    sections: [generalGuidelinesSection, askingRmaSection],
-  },
-};
+} satisfies MailSection;
