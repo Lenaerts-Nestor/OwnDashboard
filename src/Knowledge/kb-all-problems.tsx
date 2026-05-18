@@ -50,9 +50,7 @@ function StepRow({
       </span>
       <div className="flex-1 min-w-0">
         <div className="flex items-center justify-between gap-3">
-          <p className="text-sm font-semibold text-zinc-900">
-            {step.title}
-          </p>
+          <p className="text-sm font-semibold text-zinc-900">{step.title}</p>
           <span
             className={`text-[11px] font-semibold uppercase tracking-wider ${
               isCopied ? "text-emerald-600" : "text-zinc-400"
@@ -63,12 +61,12 @@ function StepRow({
         </div>
         {step.path && step.path.length > 0 && (
           <div className="flex flex-wrap items-center gap-1.5 mt-2">
-            {step.path.map((segment, pathIndex) => (
+            {step.path!.map((segment, pathIndex) => (
               <div key={`${step.id}-path-${segment}-${pathIndex}`}>
                 <span className="inline-flex items-center px-2 py-0.5 text-[11px] font-medium rounded-md bg-stone-100 text-zinc-600 border border-stone-200">
                   {segment}
                 </span>
-                {pathIndex < step.path.length - 1 && (
+                {pathIndex < step.path!.length - 1 && (
                   <span className="mx-1 text-zinc-400 text-xs">&gt;</span>
                 )}
               </div>
@@ -111,9 +109,7 @@ function IssueRow({
             {String(index + 1).padStart(2, "0")}
           </span>
           <div>
-            <p className="text-sm font-semibold text-zinc-900">
-              {issue.title}
-            </p>
+            <p className="text-sm font-semibold text-zinc-900">{issue.title}</p>
             <div className="mt-1 flex flex-wrap items-center gap-2 text-xs text-zinc-500">
               <span>{issue.caseId}</span>
               <span className="text-zinc-300">•</span>
@@ -175,7 +171,9 @@ function CategoryCard({
         className="w-full px-5 py-4 flex items-center justify-between gap-4 text-left"
       >
         <div>
-          <p className="text-sm font-semibold text-zinc-900">{category.title}</p>
+          <p className="text-sm font-semibold text-zinc-900">
+            {category.title}
+          </p>
           <p className="text-xs text-zinc-500 mt-1">
             {category.issues.length} issues
           </p>
