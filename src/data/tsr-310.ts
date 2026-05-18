@@ -344,21 +344,48 @@ export const tsr310Data: ProductInfo = {
   deviceManagement: {
     factoryReset: {
       status: "supported",
-      instructions: [
-        "Hold the Power and Menu button (Hamburger symbol) until the remote begins to reboot. The reboot cycle is completed once the Crestron Swirl logo appears on the remote's screen",
-        "Repeat the reset process 10 more times (11 total).",
-        "After the 11th reset, the remote will enter recovery mode. Once the recovery process is complete, the screen will display a reboot button. Press the reboot button to restore the remote",
+      methods: [
+        {
+          steps: [
+            "Hold the Power and Menu button (Hamburger symbol) until the remote begins to reboot. The reboot cycle is completed once the Crestron Swirl logo appears on the remote's screen",
+            "Repeat the reset process 10 more times (11 total).",
+            "After the 11th reset, the remote will enter recovery mode. Once the recovery process is complete, the screen will display a reboot button. Press the reboot button to restore the remote",
+          ],
+        },
       ],
     },
     firmwareUpdate: {
       status: "supported",
-      instructions: [
-        "Method 1:",
-        "Download the firmware .puf file from the Crestron product page , save it to your local desktop (not a network/OneDrive drive)",
-        "Open Crestron Toolbox and connect to the TSR-310 via its IP address",
-        "Use the Package Update Tool (PUF) to push the firmware to the remote",
-        "Confirm the update completes successfully.\n",
-        "Method 2:",
+      methods: [
+        {
+          methodTitle: "Via Crestron Toolbox (Over Network)",
+          steps: [
+            "Download the firmware .puf file from the Crestron product page , save it to your local desktop (not a network/OneDrive drive)",
+            "Open Crestron Toolbox and connect to the TSR-310 via its IP address",
+            "Use the Package Update Tool (PUF) to push the firmware to the remote",
+            "Confirm the update completes successfully.",
+            "Note: The TSR-310 must be on the dock for firmware/project loads. Wi-Fi alone (off dock) is not sufficient.",
+          ],
+        },
+        {
+          methodTitle: "Via Web UI",
+          steps: [
+            "Navigate to the TSR-310's web interface using its IP address in a browser.",
+            "Go to the firmware update section and browse to the downloaded .puf file.",
+            "Upload and initiate the update.",
+            "Confirm the update completes successfully.",
+          ],
+        },
+        {
+          methodTitle: "Via USB (Most Reliable if Network Methods Fail)",
+          steps: [
+            "Remove the battery door using the included tool to access the USB port.",
+            "Connect the TSR-310 to a PC via USB — a virtual RNDIS IP address will appear in the Device Discovery Tool",
+            "Use FileZilla (or Toolbox File Manager) to transfer the .puf file to the TSR-310's firmware folder.",
+            "Open a Text Console in Toolbox and run: puf all",
+            "Alternatively, use the RNDIS web UI to perform the upgrade.",
+          ],
+        },
       ],
     },
   },
@@ -370,6 +397,13 @@ export const tsr310Data: ProductInfo = {
       subtitle: "Official resources (Crestron)",
       type: "manual",
       url: "https://www.crestron.com/Products/Catalog/Control-and-Management/User-Interfaces/Handheld-Remote/TSR-310",
+    },
+    {
+      id: "tsr310-d2",
+      title: "TSR-310 Recovery Procedures",
+      subtitle: "Official resources (Crestron) Support article",
+      type: "manual",
+      url: "https://community.crestron.com/s/article/id-1001583",
     },
   ],
 };

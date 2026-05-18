@@ -72,9 +72,14 @@ export interface GeneralProblemCategory {
 
 export type DeviceManagementStatus = "supported" | "not_supported";
 
+export interface ManagementMethod {
+  methodTitle?: string; // Optional: e.g., "Via Toolbox (PUF)" or "Via Web Interface"
+  steps: string[]; // The actual step-by-step instructions
+}
+
 export interface DeviceManagementOption {
   status: DeviceManagementStatus;
-  instructions: string[];
+  methods: ManagementMethod[]; // Replaces instructions: string[]
 }
 
 export interface DeviceManagement {

@@ -1,16 +1,16 @@
-import type { DeviceManagement } from "../types";
+import type { DeviceManagement, ManagementMethod } from "../types";
 import { ChevronDownIcon, DeviceManagementIcon } from "./kb-icons";
 
 function DeviceManagementAccordion({
   title,
   status,
-  instructions,
+  methods,
   isOpen,
   onToggle,
 }: {
   title: string;
   status: "supported" | "not_supported";
-  instructions: string[];
+  methods: ManagementMethod[];
   isOpen: boolean;
   onToggle: () => void;
 }) {
@@ -46,11 +46,38 @@ function DeviceManagementAccordion({
         }`}
       >
         <div className="overflow-hidden">
-          <ol className="px-8 pb-4 text-sm text-zinc-600 list-decimal space-y-2">
-            {instructions.map((instruction, index) => (
-              <li key={`${title}-instruction-${index}`}>{instruction}</li>
-            ))}
-          </ol>
+          <div className="px-8 pb-4 text-sm text-zinc-600 space-y-4">
+            {/* CASE A: Single Method - render steps directly without labels */}
+            {methods.length === 1 ? (
+              <ol className="list-decimal space-y-2 pl-4">
+                {methods[0].steps.map((step, index) => (
+                  <li key={`${title}-step-${index}`}>{step}</li>
+                ))}
+              </ol>
+            ) : (
+              /* CASE B: Multiple Methods - render with method titles as sub-headers */
+              <div className="space-y-4">
+                {methods.map((method, methodIndex) => (
+                  <div key={`${title}-method-${methodIndex}`}>
+                    {method.methodTitle && (
+                      <h3 className="font-bold text-zinc-700 mb-2">
+                        {method.methodTitle}
+                      </h3>
+                    )}
+                    <ol className="list-decimal space-y-2 pl-4">
+                      {method.steps.map((step, stepIndex) => (
+                        <li
+                          key={`${title}-method-${methodIndex}-step-${stepIndex}`}
+                        >
+                          {step}
+                        </li>
+                      ))}
+                    </ol>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>
@@ -78,14 +105,14 @@ export function DeviceManagementCard({
             <DeviceManagementAccordion
               title="Factory Reset"
               status={deviceManagement.factoryReset.status}
-              instructions={deviceManagement.factoryReset.instructions}
+              methods={deviceManagement.factoryReset.methods}
               isOpen={openItem === "factoryReset"}
               onToggle={() => onToggleItem("factoryReset")}
             />
             <DeviceManagementAccordion
               title="Firmware Update"
               status={deviceManagement.firmwareUpdate.status}
-              instructions={deviceManagement.firmwareUpdate.instructions}
+              methods={deviceManagement.firmwareUpdate.methods}
               isOpen={openItem === "firmwareUpdate"}
               onToggle={() => onToggleItem("firmwareUpdate")}
             />

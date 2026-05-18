@@ -254,11 +254,11 @@ export const tsw1070Data: ProductInfo = {
   deviceManagement: {
     factoryReset: {
       status: "not_supported",
-      instructions: [],
+      methods: [],
     },
     firmwareUpdate: {
       status: "not_supported",
-      instructions: [],
+      methods: [],
     },
   },
 
