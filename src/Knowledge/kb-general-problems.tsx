@@ -105,13 +105,15 @@ export function GeneralProblemCategoryAccordion({
                     </p>
                     {check.path && check.path.length > 0 && (
                       <div className="flex flex-wrap items-center gap-1.5 mt-2">
-                        {check.path.map((segment, pathIndex) => (
+                        {check.path!.map((segment, pathIndex) => (
                           <div key={`${check.id}-path-${segment}-${pathIndex}`}>
                             <span className="inline-flex items-center px-2 py-0.5 text-[11px] font-medium rounded-md bg-slate-800 text-slate-300 border border-slate-700">
                               {segment}
                             </span>
-                            {pathIndex < check.path.length - 1 && (
-                              <span className="mx-1 text-slate-600 text-xs">&gt;</span>
+                            {pathIndex < check.path!.length - 1 && (
+                              <span className="mx-1 text-slate-600 text-xs">
+                                &gt;
+                              </span>
                             )}
                           </div>
                         ))}
