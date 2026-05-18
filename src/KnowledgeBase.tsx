@@ -10,7 +10,7 @@ export default function KnowledgeBase() {
   const activeProduct = knowledgebaseMap[activeId] ?? knowledgebaseData[0];
 
   return (
-    <div className="flex h-screen bg-gray-50 font-sans overflow-hidden">
+    <div className="flex h-screen bg-stone-100 text-zinc-900 font-sans overflow-hidden">
       <Sidebar
         products={knowledgebaseData}
         activeId={activeId}

@@ -32,6 +32,117 @@ export const tsw1070Data: ProductInfo = {
     },
   ],
 
+  problemCategories: [
+    {
+      id: "tsw1070-cat-network",
+      title: "Network & Connectivity",
+      issues: [
+        {
+          id: "tsw1070-issue-network-01",
+          title: "Device disconnects from Wi-Fi every few minutes",
+          caseId: "#150301",
+          severity: "High",
+          casesPer30d: 22,
+          steps: [
+            {
+              id: "tsw1070-issue-network-01-step-1",
+              title: "Validate the network path end-to-end",
+              description:
+                "Confirm the device is on the expected VLAN or subnet and that routing to the management network is correct.",
+              refCode: "#150301",
+            },
+            {
+              id: "tsw1070-issue-network-01-step-2",
+              title: "Confirm management access path",
+              description:
+                "Verify that HTTPS traffic can reach the device from the admin network (VLAN tagging, routing, firewall).",
+              refCode: "#150589",
+            },
+            {
+              id: "tsw1070-issue-network-01-step-3",
+              title: "Eliminate loop or port-security triggers",
+              description:
+                "Review loop protection, STP events, and security policies that could cause temporary shutdowns or instability.",
+              refCode: "#150301",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: "tsw1070-cat-software",
+      title: "Software & Firmware",
+      issues: [
+        {
+          id: "tsw1070-issue-software-01",
+          title: "Configuration not retained after reboot",
+          caseId: "#150422",
+          severity: "Medium",
+          casesPer30d: 14,
+          steps: [
+            {
+              id: "tsw1070-issue-software-01-step-1",
+              title: "Record the current version and baseline",
+              description:
+                "Capture the running firmware or software version and compare it to the approved baseline for the environment.",
+              refCode: "#150301",
+            },
+            {
+              id: "tsw1070-issue-software-01-step-2",
+              title: "Validate configuration persistence settings",
+              description:
+                "Confirm that the configuration is saved and persistent storage is enabled before reboot testing.",
+              refCode: "#150422",
+            },
+            {
+              id: "tsw1070-issue-software-01-step-3",
+              title: "Confirm save completes without errors",
+              description:
+                "Verify that save operations complete successfully and no storage errors are reported.",
+              refCode: "#150422",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: "tsw1070-cat-system",
+      title: "System Health",
+      issues: [
+        {
+          id: "tsw1070-issue-system-01",
+          title: "Web interface unavailable",
+          caseId: "#150589",
+          severity: "High",
+          casesPer30d: 19,
+          steps: [
+            {
+              id: "tsw1070-issue-system-01-step-1",
+              title: "Validate power input stability",
+              description:
+                "Check power source fluctuations and confirm voltage remains within specification.",
+              refCode: "#150592",
+            },
+            {
+              id: "tsw1070-issue-system-01-step-2",
+              title: "Review thermal operating conditions",
+              description:
+                "Capture device temperature and confirm airflow and ambient conditions are within spec.",
+              refCode: "#150593",
+            },
+            {
+              id: "tsw1070-issue-system-01-step-3",
+              title: "Confirm access control expectations",
+              description:
+                "Review ACL and firewall rules to ensure UI traffic is permitted (not just ICMP).",
+              refCode: "#150589",
+            },
+          ],
+        },
+      ],
+    },
+  ],
+
   generalProblems: [
     {
       id: "tsw1070-gp-network",

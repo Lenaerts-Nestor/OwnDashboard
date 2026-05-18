@@ -19,7 +19,7 @@ export function SearchIcon() {
 export function ChevronRightIcon() {
   return (
     <svg
-      className="w-4 h-4 text-gray-400"
+      className="w-4 h-4 text-zinc-400"
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
@@ -37,7 +37,7 @@ export function ChevronRightIcon() {
 export function ChevronDownIcon({ isOpen }: { isOpen: boolean }) {
   return (
     <svg
-      className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
+      className={`w-4 h-4 text-zinc-400 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
@@ -77,7 +77,7 @@ export function ExternalLinkIcon({
 export function WarningIcon() {
   return (
     <svg
-      className="w-5 h-5 text-amber-500"
+      className="w-5 h-5 text-orange-500"
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
@@ -95,7 +95,7 @@ export function WarningIcon() {
 export function HelpIcon() {
   return (
     <svg
-      className="w-5 h-5 text-blue-500"
+      className="w-5 h-5 text-orange-500"
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
@@ -113,7 +113,7 @@ export function HelpIcon() {
 export function DeviceManagementIcon() {
   return (
     <svg
-      className="w-5 h-5 text-blue-500"
+      className="w-5 h-5 text-orange-500"
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
@@ -137,7 +137,7 @@ export function DeviceManagementIcon() {
 export function BatteryIcon() {
   return (
     <svg
-      className="w-4 h-4 text-emerald-600"
+      className="w-4 h-4 text-orange-500"
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
@@ -155,7 +155,7 @@ export function BatteryIcon() {
 export function NetworkIcon() {
   return (
     <svg
-      className="w-4 h-4 text-blue-600"
+      className="w-4 h-4 text-orange-500"
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
@@ -173,7 +173,7 @@ export function NetworkIcon() {
 export function DisplayIcon() {
   return (
     <svg
-      className="w-4 h-4 text-violet-600"
+      className="w-4 h-4 text-orange-500"
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
@@ -191,7 +191,7 @@ export function DisplayIcon() {
 export function SoftwareIcon() {
   return (
     <svg
-      className="w-4 h-4 text-slate-600"
+      className="w-4 h-4 text-orange-500"
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"

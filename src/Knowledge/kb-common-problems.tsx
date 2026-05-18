@@ -4,11 +4,13 @@ import { EmptyState, RefBadge, SectionCard } from "./kb-shared";
 
 function ProblemCard({ problem }: { problem: Problem }) {
   return (
-    <div className="px-5 py-4 hover:bg-gray-50 transition-colors duration-100">
+    <div className="px-5 py-4 hover:bg-stone-50 transition-colors duration-100">
       <div className="flex items-start justify-between gap-4">
         <div className="flex-1 min-w-0">
-          <p className="text-sm font-semibold text-gray-800">{problem.title}</p>
-          <p className="text-xs text-gray-500 mt-1 leading-relaxed">
+          <p className="text-sm font-semibold text-zinc-900">
+            {problem.title}
+          </p>
+          <p className="text-xs text-zinc-500 mt-1 leading-relaxed">
             {problem.description}
           </p>
         </div>
@@ -21,7 +23,7 @@ function ProblemCard({ problem }: { problem: Problem }) {
 export function CommonProblemsSection({ problems }: { problems: Problem[] }) {
   return (
     <SectionCard
-      title="Common Problems"
+      title="Common Issues"
       icon={<WarningIcon />}
       subtitle="Frequently reported issues with quick context for triage and escalation."
     >

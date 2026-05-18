@@ -1,6 +1,5 @@
-import { useState } from "react";
 import type { DocLink, DocLinkType } from "../types";
-import { ChevronDownIcon, ExternalLinkIcon } from "./kb-icons";
+import { ExternalLinkIcon } from "./kb-icons";
 import { EmptyState } from "./kb-shared";
 
 function DocIcon({ type }: { type: DocLinkType }) {
@@ -10,9 +9,9 @@ function DocIcon({ type }: { type: DocLinkType }) {
   switch (type) {
     case "manual":
       return (
-        <div className={`${base} bg-blue-50`}>
+        <div className={`${base} bg-orange-50 border border-orange-200`}>
           <svg
-            className="w-4 h-4 text-blue-500"
+            className="w-4 h-4 text-orange-600"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -28,9 +27,9 @@ function DocIcon({ type }: { type: DocLinkType }) {
       );
     case "video":
       return (
-        <div className={`${base} bg-purple-50`}>
+        <div className={`${base} bg-stone-100 border border-stone-200`}>
           <svg
-            className="w-4 h-4 text-purple-500"
+            className="w-4 h-4 text-zinc-600"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -52,9 +51,9 @@ function DocIcon({ type }: { type: DocLinkType }) {
       );
     case "firmware":
       return (
-        <div className={`${base} bg-green-50`}>
+        <div className={`${base} bg-stone-100 border border-stone-200`}>
           <svg
-            className="w-4 h-4 text-green-500"
+            className="w-4 h-4 text-zinc-600"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -71,9 +70,9 @@ function DocIcon({ type }: { type: DocLinkType }) {
     case "datasheet":
     default:
       return (
-        <div className={`${base} bg-slate-100`}>
+        <div className={`${base} bg-stone-100 border border-stone-200`}>
           <svg
-            className="w-4 h-4 text-slate-500"
+            className="w-4 h-4 text-zinc-600"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -96,58 +95,36 @@ function DocLinkCard({ link }: { link: DocLink }) {
       href={link.url}
       target="_blank"
       rel="noreferrer"
-      className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 rounded-lg transition-colors cursor-pointer group"
+      className="flex items-center gap-3 px-4 py-3 bg-white border border-stone-200 hover:border-orange-200 hover:bg-orange-50 rounded-lg transition-colors cursor-pointer group"
     >
       <DocIcon type={link.type} />
       <div className="flex-1 min-w-0">
-        <p className="text-sm font-medium text-gray-800 group-hover:text-blue-700 transition-colors leading-tight">
+        <p className="text-sm font-medium text-zinc-900 group-hover:text-orange-700 transition-colors leading-tight">
           {link.title}
         </p>
-        <p className="text-xs text-gray-400 mt-0.5">{link.subtitle}</p>
+        <p className="text-xs text-zinc-500 mt-0.5">{link.subtitle}</p>
       </div>
-      <span className="text-gray-300 group-hover:text-blue-400 transition-colors flex-shrink-0">
+      <span className="text-zinc-400 group-hover:text-orange-600 transition-colors flex-shrink-0">
         <ExternalLinkIcon className="w-3.5 h-3.5" />
       </span>
     </a>
   );
 }
 
-export function DocumentationLinksCard({ docLinks }: { docLinks: DocLink[] }) {
-  const [isOpen, setIsOpen] = useState(false);
+export function DocumentationLinksGrid({ docLinks }: { docLinks: DocLink[] }) {
+  if (docLinks.length === 0) {
+    return (
+      <div className="bg-white border border-zinc-200 rounded-xl overflow-hidden">
+        <EmptyState label="documentation" />
+      </div>
+    );
+  }
 
   return (
-    <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
-      <button
-        type="button"
-        onClick={() => setIsOpen((previous) => !previous)}
-        className="w-full flex items-center justify-between gap-3 px-5 py-4 border-b border-gray-100 text-left"
-      >
-        <div className="flex items-center gap-2">
-          <span className="text-blue-500">
-            <ExternalLinkIcon className="w-5 h-5" />
-          </span>
-          <h2 className="text-sm font-bold text-gray-800">
-            Documentation &amp; Links
-          </h2>
-        </div>
-        <ChevronDownIcon isOpen={isOpen} />
-      </button>
-
-      <div
-        className={`grid transition-all duration-300 ease-in-out ${
-          isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
-        }`}
-      >
-        <div className="overflow-hidden">
-          <div className="divide-y divide-gray-100 px-1 py-1">
-            {docLinks.length === 0 ? (
-              <EmptyState label="documentation" />
-            ) : (
-              docLinks.map((link) => <DocLinkCard key={link.id} link={link} />)
-            )}
-          </div>
-        </div>
-      </div>
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+      {docLinks.map((link) => (
+        <DocLinkCard key={link.id} link={link} />
+      ))}
     </div>
   );
 }

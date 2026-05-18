@@ -17,20 +17,22 @@ function DeviceManagementAccordion({
   const isSupported = status === "supported";
 
   return (
-    <div className="border border-gray-100 rounded-lg bg-gray-50/60">
+    <div className="border border-stone-200 rounded-lg bg-stone-50">
       <button
         type="button"
         onClick={onToggle}
         disabled={!isSupported}
         className={`w-full px-4 py-3 flex items-center justify-between gap-3 text-left ${
-          isSupported ? "hover:bg-gray-50 cursor-pointer" : "cursor-not-allowed"
+          isSupported
+            ? "hover:bg-zinc-100 cursor-pointer"
+            : "cursor-not-allowed"
         } transition-colors`}
       >
-        <span className="text-sm font-semibold text-gray-800">{title}</span>
+        <span className="text-sm font-semibold text-zinc-900">{title}</span>
         {isSupported ? (
           <ChevronDownIcon isOpen={isOpen} />
         ) : (
-          <span className="text-xs font-medium text-red-600 bg-red-50 border border-red-100 px-2 py-0.5 rounded-md whitespace-nowrap">
+          <span className="text-xs font-medium text-orange-700 bg-orange-50 border border-orange-200 px-2 py-0.5 rounded-md whitespace-nowrap">
             Not supported yet
           </span>
         )}
@@ -44,7 +46,7 @@ function DeviceManagementAccordion({
         }`}
       >
         <div className="overflow-hidden">
-          <ol className="px-8 pb-4 text-sm text-gray-600 list-decimal space-y-2">
+          <ol className="px-8 pb-4 text-sm text-zinc-600 list-decimal space-y-2">
             {instructions.map((instruction, index) => (
               <li key={`${title}-instruction-${index}`}>{instruction}</li>
             ))}
@@ -65,10 +67,10 @@ export function DeviceManagementCard({
   onToggleItem: (item: "factoryReset" | "firmwareUpdate") => void;
 }) {
   return (
-    <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
-      <div className="flex items-center gap-2 px-5 py-4 border-b border-gray-100">
+    <div className="bg-white border border-stone-200 rounded-xl overflow-hidden">
+      <div className="flex items-center gap-2 px-5 py-4 border-b border-stone-200">
         <DeviceManagementIcon />
-        <h2 className="text-sm font-bold text-gray-800">Device Management</h2>
+        <h2 className="text-sm font-bold text-zinc-900">Device Management</h2>
       </div>
       <div className="p-4 space-y-3">
         {deviceManagement ? (
@@ -89,8 +91,8 @@ export function DeviceManagementCard({
             />
           </>
         ) : (
-          <div className="rounded-lg border border-gray-100 bg-gray-50/60 px-4 py-6 text-center">
-            <p className="text-sm text-gray-400 italic">
+          <div className="rounded-lg border border-stone-200 bg-stone-50 px-4 py-6 text-center">
+            <p className="text-sm text-zinc-400 italic">
               No device management options available for this product.
             </p>
           </div>

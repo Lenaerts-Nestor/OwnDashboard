@@ -15,6 +15,31 @@ export interface Problem {
   refCode: string;
 }
 
+export type ProblemSeverity = "Low" | "Medium" | "High" | "Critical";
+
+export interface ProblemStep {
+  id: string;
+  title: string;
+  description: string;
+  refCode: string;
+  path?: string[];
+}
+
+export interface ProblemIssue {
+  id: string;
+  title: string;
+  caseId: string;
+  severity: ProblemSeverity;
+  casesPer30d: number;
+  steps: ProblemStep[];
+}
+
+export interface ProblemCategoryGroup {
+  id: string;
+  title: string;
+  issues: ProblemIssue[];
+}
+
 export interface DocLink {
   id: string;
   title: string;
@@ -35,6 +60,7 @@ export interface GeneralProblemCheck {
   title: string;
   prompt: string;
   refCode: string;
+  path?: string[];
 }
 
 export interface GeneralProblemCategory {
@@ -68,6 +94,7 @@ export interface ProductInfo {
   tagColor: string;
   // Content
   problems: Problem[];
+  problemCategories: ProblemCategoryGroup[];
   generalProblems: GeneralProblemCategory[];
   deviceManagement?: DeviceManagement;
   docLinks: DocLink[];
