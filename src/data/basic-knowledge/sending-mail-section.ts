@@ -1,12 +1,5 @@
 import type { ProductInfo } from "../../types";
-import {
-  askingRmaSection,
-  firstFollowUpSection,
-  generalGuidelinesSection,
-  secondFollowUpSection,
-  startEmailSection,
-  thirdFollowUpSection,
-} from "./content";
+import { startEmailSection } from "./sections/start-email";
 
 export const sendingMailSectionData = {
   id: "sending-mail-section",
@@ -21,13 +14,6 @@ export const sendingMailSectionData = {
   generalProblems: [],
   docLinks: [],
   mailContent: {
-    sections: [
-      startEmailSection,
-      firstFollowUpSection,
-      secondFollowUpSection,
-      thirdFollowUpSection,
-      generalGuidelinesSection,
-      askingRmaSection,
-    ],
+    sections: [startEmailSection],
   },
 } satisfies ProductInfo;

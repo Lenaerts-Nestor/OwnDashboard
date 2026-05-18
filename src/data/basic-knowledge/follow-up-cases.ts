@@ -3,7 +3,7 @@ import {
   firstFollowUpSection,
   secondFollowUpSection,
   thirdFollowUpSection,
-} from "./content";
+} from "./sections/follow-ups";
 
 export const followUpCasesData = {
   id: "follow-up-cases",
