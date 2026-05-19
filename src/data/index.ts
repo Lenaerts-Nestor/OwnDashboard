@@ -4,8 +4,8 @@ import {
   mailsRulesData,
   sendingMailSectionData,
 } from "./basic-knowledge";
-import { tsr310Data } from "./tsr-310";
-import { tsw1070Data } from "./tsw-1070";
+import { tsr310Data } from "./product-knowledge/tsr-310";
+import { tsw1070Data } from "./product-knowledge/tsw-1070";
 // Add later: import { pmc500Data } from "./pmc-500";
 
 export const knowledgebaseData: ProductInfo[] = [

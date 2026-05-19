@@ -1,4 +1,4 @@
-import type { ProductInfo } from "../types";
+import type { ProductInfo } from "../../types";
 
 export const tsw1070Data: ProductInfo = {
   id: "TSW-1070",
