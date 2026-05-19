@@ -253,8 +253,27 @@ export const tsw1070Data: ProductInfo = {
 
   deviceManagement: {
     factoryReset: {
-      status: "not_supported",
-      methods: [],
+      status: "supported",
+      methods:  [
+        {
+          methodTitle: "Method 1: Physical Button Reset",
+          steps: [
+            "Reset the TS(S)(W)-570/770/1070 by pressing and holding the pinhole-recessed reset button on the back of the unit (pictured below) for 5 seconds",
+            "The reset cycle is completed once the Crestron Swirl logo with dots below appears onscreen. Repeat this process 10 more times.",
+
+          ],
+        },
+        {
+          methodTitle: "Method 2: Ethernet Cable Reset",
+          steps: [
+            "Remove the Ethernet cable from the TS(S)(W)-570/770/1070, then reconnect the Ethernet cable. The reset cycle is completed once the Crestron Swirl logo with dots below appears onscreen",
+            "Repeat this process 10 more times.",
+            "**Reboot: Selecting this option will restart the unit without a restore",
+            "**Factory Restore Menu: There are two options; one returns to the prior menu, and the other performs a factory restore",
+          ],
+        },
+        
+      ],
     },
     firmwareUpdate: {
       status: "not_supported",
@@ -265,31 +284,11 @@ export const tsw1070Data: ProductInfo = {
   docLinks: [
     {
       id: "tsw1070-d1",
-      title: "TSW-1070 Product Documentation",
-      subtitle: "Official documentation (Crestron)",
+      title: "TS/TSS/TSW-570/770/1070: Recovery Procedure",
+      subtitle: "Official documentation (Crestron) support page",
       type: "manual",
       url: "https://www.crestron.com/Search#q=TSW-1070",
     },
-    {
-      id: "tsw1070-d2",
-      title: "Deployment & Configuration Overview",
-      subtitle: "Implementation overview",
-      type: "video",
-      url: "https://www.crestron.com/Search#q=TSW-1070%20configuration",
-    },
-    {
-      id: "tsw1070-d3",
-      title: "Firmware Downloads",
-      subtitle: "Firmware releases",
-      type: "firmware",
-      url: "https://www.crestron.com/Search#q=TSW-1070%20firmware",
-    },
-    {
-      id: "tsw1070-d4",
-      title: "TSW-1070 Datasheet",
-      subtitle: "Specifications (PDF)",
-      type: "datasheet",
-      url: "https://www.crestron.com/Search#q=TSW-1070%20datasheet",
-    },
+   
   ],
 };

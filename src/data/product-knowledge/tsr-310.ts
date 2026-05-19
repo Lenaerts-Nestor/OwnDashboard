@@ -14,7 +14,7 @@ export const tsr310Data: ProductInfo = {
       title: "Slow Wi-Fi reconnection after sleep",
       description:
         "After wake, the unit takes noticeably longer than expected to rejoin Wi-Fi and restore control.",
-      refCode: "#TSR-001",
+      refCode: "#",
     },
     {
       id: "tsr310-p2",

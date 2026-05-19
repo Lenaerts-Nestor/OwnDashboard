@@ -1,5 +1,5 @@
 import type { Problem } from "../types";
-import { WarningIcon } from "./kb-icons";
+import { NetworkIcon, WarningIcon } from "./kb-icons";
 import { EmptyState, RefBadge, SectionCard } from "./kb-shared";
 
 function ProblemCard({ problem }: { problem: Problem }) {
@@ -23,8 +23,8 @@ function ProblemCard({ problem }: { problem: Problem }) {
 export function CommonProblemsSection({ problems }: { problems: Problem[] }) {
   return (
     <SectionCard
-      title="Common Issues"
-      icon={<WarningIcon />}
+      title="Tech Tips & Known Issues"
+      icon={<NetworkIcon />}
       subtitle="Frequently reported issues with quick context for triage and escalation."
     >
       {problems.length === 0 ? (

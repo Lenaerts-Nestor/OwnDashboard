@@ -62,15 +62,15 @@ function KnowledgeBaseContentView({ product }: { product: ProductInfo }) {
               {product.problemCategories.length} categories
             </span>
             <span className="px-2 py-1 rounded-md bg-white border border-stone-200">
-              {product.problems.length} common issues
+              {product.problems.length} tech tips & known issues
             </span>
           </div>
         </div>
         <div className="mt-4 border-b border-stone-200">
           <div className="flex items-center gap-6 text-sm font-semibold text-zinc-500">
             {[
-              { id: "common", label: "Common Issues" },
-              { id: "all", label: "All Problems" },
+              { id: "common", label: "Tech Tips & Known Issues" },
+              { id: "all", label: "Common Problems" },
               { id: "notes", label: "My Notes" },
               { id: "links", label: "Links" },
             ].map((tab) => (
